@@ -31,4 +31,23 @@ checkout에는 2가지 기능이 있는데 현재는 restore, switch로 변경�
 
 * git rm -rf {파일명} : unstaged까지 하고 파일을 삭제함.
 
+### Commit 수정하기
+최신의 커밋만을 수정을 권고한다. 이전의 커밋은 역사관점에서 바꾸는 것은 아닌 것 같다.
+rebase는 브랜치위 잡은 시점을 옮겨주는 것. interactive하게 commit을 바꿔주는 기능도있다. 하지만 배우지 않을 것. 관점과 맞지 않기 때문에.
 
+* `git commit --amend` : 최신 commit 수정
+
+* commit은 자주하고 push는 신중하게 해라.
+
+#### Reset(최악! 절대 쓰지 마라)
+
+```
+git reset --hard HEAD~3
+git push -f origin <branch>
+```
+* 직전 3개의 commit을 삭제한 후, remote에 강제 push
+
+
+Revert
+
+* 잘못만들었다는 사과문을 만들어준다. Reset 같은 경우에는 좀비가 되어버려서 계속 생성이 된다.
